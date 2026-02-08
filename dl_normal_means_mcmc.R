@@ -38,7 +38,7 @@ simulate_dl_normal_means <- function(
   y <- rnorm(n, mean = theta_true, sd = 1)
 
   theta <- rep(0, n)
-  delta <- rgamma(n, shape = a, rate = 1 / 2)
+  delta <- rgamma(n, shape = max(a, 0.1), rate = 1/2)
   psi <- rexp(n, rate = 1 / 2)
 
   n_keep <- floor((n_iter - burnin) / thin)
